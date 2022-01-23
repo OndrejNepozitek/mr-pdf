@@ -1,3 +1,7 @@
+## Fork of mr-pdf
+
+This fork contains a fix described here: [Race condition with loading images](https://github.com/kohheepeace/mr-pdf/issues/37).
+
 ## 📌 Introduction
 
 This is a PDF generator from document website such as `docusaurus`, `vuepress`, `mkdocs`.
