@@ -199,7 +199,7 @@ function generateToc(contentHtml: string) {
 
   // Create TOC only for h1~h3
   const modifiedContentHTML = contentHtml.replace(
-    /<h[1-3](.+?)<\/h[1-3]( )*>/g,
+    /<h[1](.+?)<\/h[1]( )*>/g,
     htmlReplacer,
   );
 
