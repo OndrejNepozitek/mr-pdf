@@ -1,11 +1,11 @@
 import chalk = require('chalk');
 import puppeteer = require('puppeteer');
 
-function escapeRegExp(string) {
+function escapeRegExp(string: string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
-function replaceAll(str, find, replace) {
+function replaceAll(str: string, find: string, replace: string): string {
   return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }
 
