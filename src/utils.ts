@@ -76,6 +76,8 @@ export async function generatePDF({
         { contentSelector },
       );
 
+      html.replaceAll("http://localhost:3000/Edgar-Unity/docs/next/", "https://ondrejnepozitek.github.io/Edgar-Unity/docs/");
+
       // Make joined content html
       if ((excludeURLs && excludeURLs.includes(nextPageURL)) || nextPageURL.includes("/examples/") || nextPageURL.includes("/guides/")) {
         console.log(chalk.green('This URL is excluded.'));
