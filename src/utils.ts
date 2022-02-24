@@ -84,6 +84,7 @@ export async function generatePDF({
         { contentSelector },
       );
 
+      chalk.green(html);
       html = replaceAll(html, "http://localhost:3000/Edgar-Unity/docs/next/", "https://ondrejnepozitek.github.io/Edgar-Unity/docs/");
 
       // Make joined content html
