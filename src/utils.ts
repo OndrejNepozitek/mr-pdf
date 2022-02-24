@@ -1,6 +1,14 @@
 import chalk = require('chalk');
 import puppeteer = require('puppeteer');
 
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
 let contentHTML = '';
 export interface generatePDFOptions {
   initialDocURLs: Array<string>;
@@ -53,7 +61,7 @@ export async function generatePDF({
         timeout: 0,
       });
       // Get the HTML string of the content section.
-      const html = await page.evaluate(
+      let html = await page.evaluate(
         ({ contentSelector }) => {
           const element: HTMLElement | null = document.querySelector(
             contentSelector,
@@ -76,7 +84,7 @@ export async function generatePDF({
         { contentSelector },
       );
 
-      html.replaceAll("http://localhost:3000/Edgar-Unity/docs/next/", "https://ondrejnepozitek.github.io/Edgar-Unity/docs/");
+      html = replaceAll(html, "http://localhost:3000/Edgar-Unity/docs/next/", "https://ondrejnepozitek.github.io/Edgar-Unity/docs/");
 
       // Make joined content html
       if ((excludeURLs && excludeURLs.includes(nextPageURL)) || nextPageURL.includes("/examples/") || nextPageURL.includes("/guides/")) {
