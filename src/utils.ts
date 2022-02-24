@@ -84,13 +84,11 @@ export async function generatePDF({
         { contentSelector },
       );
 
-      console.log(chalk.green(html));
-      html = replaceAll(html, 'href="/Edgar-Unity/docs/next/', 'href="https://ondrejnepozitek.github.io/Edgar-Unity/docs/');
-
       // Make joined content html
       if ((excludeURLs && excludeURLs.includes(nextPageURL)) || nextPageURL.includes("/examples/") || nextPageURL.includes("/guides/")) {
         console.log(chalk.green('This URL is excluded.'));
       } else {
+        html = replaceAll(html, 'href="/Edgar-Unity/docs/next/', 'href="https://ondrejnepozitek.github.io/Edgar-Unity/docs/');
         contentHTML += html;
         console.log(chalk.green('Success'));
       }
