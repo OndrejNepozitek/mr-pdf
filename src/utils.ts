@@ -85,7 +85,7 @@ export async function generatePDF({
       );
 
       console.log(chalk.green(html));
-      html = replaceAll(html, 'href="Edgar-Unity/docs/next/', 'href="https://ondrejnepozitek.github.io/Edgar-Unity/docs/');
+      html = replaceAll(html, 'href="/Edgar-Unity/docs/next/', 'href="https://ondrejnepozitek.github.io/Edgar-Unity/docs/');
 
       // Make joined content html
       if ((excludeURLs && excludeURLs.includes(nextPageURL)) || nextPageURL.includes("/examples/") || nextPageURL.includes("/guides/")) {
